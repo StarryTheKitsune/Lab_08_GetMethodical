@@ -24,9 +24,14 @@ public class DevTest {
         double income = getRangedDouble(in,"Enter your income",5000,100000);
         System.out.println("You said your income is: " + income);
 
-         */
+
         boolean leaveClass = getYNConfirm(in, "Are you ready to leave class?");
         System.out.println(leaveClass);
+        */
+
+        String ssn = getRegExString(in, "Enter your SSN","^\\d{3}-\\d{2}-\\d{4}$");
+        System.out.println("your SSN: "+ssn);
+
     }
 
     /**
@@ -204,6 +209,29 @@ public class DevTest {
             }
             else{
                 System.out.println("You must enter Y or N, not: " + input);
+            }
+        }while(!done);
+        return retVal;
+    }
+
+    /**
+     * returns a String value that matches a regular expression
+     * @param pipe the scanner used for input
+     * @param prompt tells the user what to input
+     * @param regEx regular expression pattern to match
+     * @return
+     */
+    public static String getRegExString(Scanner pipe, String prompt, String regEx){
+        String retVal = "";
+        boolean done = false;
+
+        do {
+            System.out.print(prompt + regEx + ": ");
+            retVal = pipe.nextLine();
+            if(retVal.matches(regEx)){
+                done = true;}
+            else{
+                System.out.println("You must enter a value that matches the pattern " + regEx + " not  " + retVal);
             }
         }while(!done);
         return retVal;

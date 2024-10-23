@@ -129,7 +129,7 @@ public class SafeInput
         do {
             System.out.print(prompt + " [" + low + " - " + high + "]: ");
             if(pipe.hasNextDouble()){
-                retVal = pipe.nextInt();
+                retVal = pipe.nextDouble();
                 pipe.nextLine();
                 if(retVal >= low && retVal <= high){
                     done = true;
@@ -175,6 +175,28 @@ public class SafeInput
             }
             else{
                 System.out.println("You must enter Y or N, not: " + input);
+            }
+        }while(!done);
+        return retVal;
+    }
+    /**
+     * returns a String value that matches a regular expression
+     * @param pipe the scanner used for input
+     * @param prompt tells the user what to input
+     * @param regEx regular expression pattern to match
+     * @return
+     */
+    public static String getRegExString(Scanner pipe, String prompt, String regEx){
+        String retVal = "";
+        boolean done = false;
+
+        do {
+            System.out.print(prompt + regEx + ": ");
+            retVal = pipe.nextLine();
+            if(retVal.matches(regEx)){
+                done = true;}
+            else{
+                System.out.println("You must enter a value that matches the pattern " + regEx + " not  " + retVal);
             }
         }while(!done);
         return retVal;
