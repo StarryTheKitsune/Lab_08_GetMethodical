@@ -4,7 +4,7 @@ public class DevTest {
     public static void main(String[] args)
     {
         Scanner in = new Scanner(System.in);
-        /*
+
         String name = getNonZeroLenString(in, "Enter your name");
         System.out.println("Your name is: " + name);
 
@@ -32,7 +32,7 @@ public class DevTest {
         String ssn = getRegExString(in, "Enter your SSN","^\\d{3}-\\d{2}-\\d{4}$");
         System.out.println("your SSN: "+ssn);
 
-         */
+
         SafeInput.prettyHeader("SAMPLE TEXT!");
     }
 
